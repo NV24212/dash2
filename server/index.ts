@@ -57,17 +57,8 @@ export async function createServer(): Express {
 
 // Export setupRoutes function for node-build.ts
 export async function setupRoutes(app: Express) {
-  // Apply CORS middleware
-  app.use(
-    cors({
-      origin: true,
-      credentials: true,
-    }),
-  );
-
-  // Parse JSON bodies
-  app.use(express.json({ limit: "50mb" }));
-  app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+  // Note: CORS and body parsing middleware should be applied by the caller
+  // (either node-build.ts or the Vite dev server)
 
   // Serve uploaded files statically
   app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
