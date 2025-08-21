@@ -8,7 +8,9 @@ try {
   bcryptAvailable = true;
   console.log("✅ bcryptjs loaded successfully");
 } catch (error) {
-  console.warn("⚠️ bcryptjs not available, using fallback authentication for development");
+  console.warn(
+    "⚠️ bcryptjs not available, using fallback authentication for development",
+  );
   bcryptAvailable = false;
 }
 
@@ -44,7 +46,9 @@ async function initializeDefaultAdmin() {
       } else {
         // Fallback: store plain password with a prefix to identify it
         hashedPassword = "PLAIN:" + defaultPassword;
-        console.warn("⚠️ Using plain-text password storage (development only!)");
+        console.warn(
+          "⚠️ Using plain-text password storage (development only!)",
+        );
       }
 
       const newAdmin: AdminUser = {
@@ -90,7 +94,9 @@ async function initializeDefaultAdmin() {
     } else {
       // Fallback: store plain password with a prefix to identify it
       hashedPassword = "PLAIN:" + defaultPassword;
-      console.warn("⚠️ Creating fallback admin with plain-text password (development only!)");
+      console.warn(
+        "⚠️ Creating fallback admin with plain-text password (development only!)",
+      );
     }
 
     fallbackAdminUser = {
@@ -150,7 +156,9 @@ export const adminDb = {
       // Check if it's a plain-text password (fallback mode)
       if (admin.password_hash.startsWith("PLAIN:")) {
         const plainPassword = admin.password_hash.substring(6); // Remove "PLAIN:" prefix
-        console.warn("⚠️ Using plain-text password verification (development only!)");
+        console.warn(
+          "⚠️ Using plain-text password verification (development only!)",
+        );
         return password === plainPassword;
       }
 
