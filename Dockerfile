@@ -54,4 +54,4 @@ USER nodejs
 EXPOSE 8080
 
 # Start the server
-CMD ["node", "dist/server/node-build.mjs"]
+CMD ["node", "dist/server/index.js"]
