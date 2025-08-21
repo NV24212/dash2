@@ -142,17 +142,25 @@ export const adminDb = {
   // Verify admin password
   async verifyPassword(password: string): Promise<boolean> {
     try {
-      if (!bcrypt) {
-        console.error("bcrypt not available, cannot verify password");
-        return false;
-      }
-
       const admin = await this.getAdminUser();
       if (!admin) {
         return false;
       }
 
-      return await bcrypt.compare(password, admin.password_hash);
+      // Check if it's a plain-text password (fallback mode)
+      if (admin.password_hash.startsWith("PLAIN:")) {
+        const plainPassword = admin.password_hash.substring(6); // Remove "PLAIN:" prefix
+        console.warn("⚠️ Using plain-text password verification (development only!)");
+        return password === plainPassword;
+      }
+
+      // Use bcrypt if available
+      if (bcryptAvailable) {
+        return await bcrypt.compare(password, admin.password_hash);
+      }
+
+      console.error("No password verification method available");
+      return false;
     } catch (error) {
       console.error("Error verifying password:", error);
       return false;
