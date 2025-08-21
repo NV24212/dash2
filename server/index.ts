@@ -48,6 +48,7 @@ import {
   initializeLogs,
 } from "./routes/logs";
 import { handleFixCharacters } from "./routes/fix-characters";
+import { handleDebug } from "./routes/debug";
 
 export function createServer(): Express {
   const app = express();
