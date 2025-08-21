@@ -56,7 +56,7 @@ export function createServer(): Express {
 }
 
 // Export setupRoutes function for node-build.ts
-export function setupRoutes(app: Express) {
+export async function setupRoutes(app: Express) {
   // Apply CORS middleware
   app.use(
     cors({
