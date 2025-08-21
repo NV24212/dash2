@@ -22,7 +22,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
 // Setup all API routes
-setupRoutes(app);
+await setupRoutes(app);
 
 // Health check endpoint (required for Fly.io)
 app.get("/api/ping", (req, res) => {
