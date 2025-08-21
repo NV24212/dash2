@@ -31,7 +31,7 @@ primary_region = "ams"
   cpus = 1
 
 [processes]
-  app = "node dist/server/index.js"
+  app = "node dist/server/node-build.js"
 
 [restart]
   policy = "on-failure"
