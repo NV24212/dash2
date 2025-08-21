@@ -170,17 +170,20 @@ export const adminDb = {
   // Update admin password
   async updatePassword(newPassword: string): Promise<boolean> {
     try {
-      if (!bcrypt) {
-        console.error("bcrypt not available, cannot update password");
-        return false;
-      }
-
       const admin = await this.getAdminUser();
       if (!admin) {
         return false;
       }
 
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      let hashedPassword: string;
+      if (bcryptAvailable) {
+        hashedPassword = await bcrypt.hash(newPassword, 10);
+      } else {
+        // Fallback: store plain password with a prefix to identify it
+        hashedPassword = "PLAIN:" + newPassword;
+        console.warn("⚠️ Updating to plain-text password (development only!)");
+      }
+
       const updates = {
         password_hash: hashedPassword,
         updated_at: new Date().toISOString(),
