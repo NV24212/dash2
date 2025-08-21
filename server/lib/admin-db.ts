@@ -1,11 +1,11 @@
 import { supabase } from "./supabase";
 
-// Dynamic import for bcrypt to handle environments where it might not be available
+// Dynamic import for bcryptjs to handle environments where it might not be available
 let bcrypt: any = null;
 try {
-  bcrypt = require("bcrypt");
+  bcrypt = require("bcryptjs");
 } catch (error) {
-  console.warn("bcrypt not available, password hashing will be disabled");
+  console.warn("bcryptjs not available, password hashing will be disabled");
 }
 
 // Admin user interface
