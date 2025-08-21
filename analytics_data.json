@@ -2169,12 +2169,75 @@
       "page": "/",
       "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
       "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-21T16:52:02.065Z",
+      "type": "page_view",
+      "page": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-21T16:52:07.216Z",
+      "type": "page_view",
+      "page": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-21T16:52:07.458Z",
+      "type": "page_view",
+      "page": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-21T16:52:08.803Z",
+      "type": "page_view",
+      "page": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-21T16:52:09.977Z",
+      "type": "page_view",
+      "page": "/admin",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-21T16:52:11.008Z",
+      "type": "page_view",
+      "page": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-21T16:52:13.450Z",
+      "type": "page_view",
+      "page": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-21T16:52:21.736Z",
+      "type": "page_view",
+      "page": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "timestamp": "2025-08-21T16:52:33.958Z",
+      "type": "page_view",
+      "page": "/",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36",
+      "ip": "::ffff:127.0.0.1"
     }
   ],
   "sessionData": {
     "totalSessions": 0,
     "uniqueVisitors": 0,
-    "pageViews": 310,
-    "lastUpdated": "2025-08-21T16:51:56.919Z"
+    "pageViews": 319,
+    "lastUpdated": "2025-08-21T16:52:33.958Z"
   }
 }
