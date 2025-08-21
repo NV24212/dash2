@@ -138,6 +138,9 @@ export function setupRoutes(app: Express) {
     res.json({ message: "ping", timestamp: new Date().toISOString() });
   });
 
+  // Debug endpoint to check environment variables
+  app.get("/api/debug", handleDebug);
+
   // Catch-all handler: send back React's index.html file for any non-API routes (production only)
   if (process.env.NODE_ENV === "production") {
     app.get("*", (_req, res) => {
