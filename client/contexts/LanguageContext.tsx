@@ -562,7 +562,7 @@ const translations = {
     "common.itemAr": "منتج",
     "common.itemsAr": "منتجات",
     "common.language": "Language",
-    "common.languageAr": "العرب��ة",
+    "common.languageAr": "العربية",
 
     // Order success messages
     "orderSuccess.headline": "Order Confirmed!",
@@ -872,7 +872,7 @@ const translations = {
     "analytics.title": "تحليلات الموقع",
     "analytics.overview": "إحصائيات حقيقية لأداء موقعك والزوار",
     "analytics.totalOrders": "إجمالي الطلبات",
-    "analytics.totalRevenue": "إج��الي الإيرادات",
+    "analytics.totalRevenue": "إجالي الإيرادات",
     "analytics.totalCustomers": "إجمالي العملاء",
     "analytics.totalProducts": "إجمالي المنتجات",
     "analytics.pageViews": "مشاهدات الصفحات",
@@ -894,7 +894,7 @@ const translations = {
     "analytics.visitors": "الزوار",
     "analytics.last7days": "آخر 7 أيام",
     "analytics.last30days": "آخر 30 يوماً",
-    "analytics.last90days": "آخ�� 90 يوماً",
+    "analytics.last90days": "آخ 90 يوماً",
     "analytics.refresh": "تحديث",
     "analytics.realTimeTracking": "تتبع مباشر نشط",
     "analytics.lastUpdated": "آخر تحديث",
@@ -960,7 +960,7 @@ const translations = {
     "settings.saveError": "فشل في حفظ الإعدادات. يرجى المناولة مرة أخرى.",
     "settings.resetConfirm":
       "هل أنت متأكد من إعادة تعيين جميع الإعدادات للقيم الافتراضية؟",
-    "settings.unsavedChanges": "لديك تغييرات غير محفوظة. لا تنس ال��فظ!",
+    "settings.unsavedChanges": "لديك تغييرات غير محفوظة. لا تنس الفظ!",
     "settings.advancedSettings": "الإعدادات المتقدمة",
     "settings.performanceMode": "وضع الأداء",
     "settings.imageCompression": "ضغط الصور",
