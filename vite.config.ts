@@ -33,7 +33,7 @@ function expressPlugin(): Plugin {
       try {
         // Dynamically import the server only during development
         const { createServer } = await import("./server/index.js");
-        const app = createServer();
+        const app = await createServer();
 
         // Add Express app as middleware to Vite dev server
         server.middlewares.use(app);
