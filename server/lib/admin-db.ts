@@ -2,10 +2,14 @@ import { supabase } from "./supabase";
 
 // Dynamic import for bcryptjs to handle environments where it might not be available
 let bcrypt: any = null;
+let bcryptAvailable = false;
 try {
   bcrypt = require("bcryptjs");
+  bcryptAvailable = true;
+  console.log("✅ bcryptjs loaded successfully");
 } catch (error) {
-  console.warn("bcryptjs not available, password hashing will be disabled");
+  console.warn("⚠️ bcryptjs not available, using fallback authentication for development");
+  bcryptAvailable = false;
 }
 
 // Admin user interface
