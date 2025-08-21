@@ -49,9 +49,9 @@ import {
 } from "./routes/logs";
 import { handleFixCharacters } from "./routes/fix-characters";
 
-export function createServer(): Express {
+export async function createServer(): Express {
   const app = express();
-  setupRoutes(app);
+  await setupRoutes(app);
   return app;
 }
 
