@@ -190,13 +190,28 @@ export default function Revenue() {
   const formatCurrency = (amount: number) => formatPrice(amount, language);
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">
-          {t("revenue.title")}
-        </h1>
-        <p className="text-gray-600 mt-2">{t("revenue.overview")}</p>
-      </div>
+    <ErrorBoundary 
+      fallback={
+        <div className="space-y-6">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">
+              {t("revenue.title")}
+            </h1>
+            <p className="text-gray-600 mt-2">Revenue page temporarily unavailable</p>
+          </div>
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <p className="text-yellow-800">There was an error loading the revenue data. Please refresh the page or contact support if the issue persists.</p>
+          </div>
+        </div>
+      }
+    >
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">
+            {t("revenue.title")}
+          </h1>
+          <p className="text-gray-600 mt-2">{t("revenue.overview")}</p>
+        </div>
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -640,5 +655,6 @@ export default function Revenue() {
         </Card>
       </div>
     </div>
+    </ErrorBoundary>
   );
 }

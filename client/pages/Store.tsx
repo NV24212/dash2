@@ -131,7 +131,7 @@ export default function Store() {
         <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between [dir=rtl]:flex-row-reverse">
           {/* Logo and Title */}
           <div className="flex items-center gap-2 sm:gap-3 [dir=rtl]:flex-row-reverse min-w-0 flex-1">
-            <div className="h-20 sm:h-24 lg:h-28 xl:h-32 flex items-center">
+            <div className="h-24 sm:h-28 lg:h-32 xl:h-36 flex items-center">
               <img
                 src={
                   language === "ar"
@@ -139,7 +139,7 @@ export default function Store() {
                     : "https://cdn.builder.io/api/v1/image/assets%2F22d5611cd8c847859f0fef8105890b91%2Feb0b70b9250f4bfca41dbc5a78c2ce45?format=webp&width=800"
                 }
                 alt="أزهار ستور - azharstore"
-                className="h-20 sm:h-24 lg:h-28 xl:h-32 w-auto object-contain"
+                className="h-24 sm:h-28 lg:h-32 xl:h-36 w-auto object-contain"
               />
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function Store() {
               {cartItemsCount > 0 && (
                 <Badge
                   variant="destructive"
-                  className="absolute -top-2 -right-1 [dir=rtl]:-left-1 [dir=rtl]:right-auto h-5 w-5 flex items-center justify-center p-0 text-xs animate-pulse"
+                  className="absolute -top-2 -right-2 [dir=rtl]:-left-2 [dir=rtl]:right-auto h-5 w-5 flex items-center justify-center p-0 text-xs animate-pulse"
                 >
                   {cartItemsCount}
                 </Badge>
