@@ -50,7 +50,7 @@ export default function CartSidebar({ open, onClose }: CartSidebarProps) {
   return (
     <>
       <Dialog open={open} onOpenChange={onClose}>
-        <DialogContent className="w-[90vw] max-w-md sm:max-w-lg max-h-[85vh] flex flex-col p-0 rounded-2xl border shadow-2xl bg-white mx-auto">
+        <DialogContent className="w-[85vw] max-w-md sm:max-w-lg max-h-[80vh] flex flex-col p-0 rounded-2xl border shadow-2xl bg-white mx-auto">
           <DialogHeader className="px-4 py-4 border-b">
             <DialogTitle className="flex items-center gap-2 text-lg font-semibold">
               <ShoppingBag className="h-5 w-5 text-primary" />
@@ -58,7 +58,7 @@ export default function CartSidebar({ open, onClose }: CartSidebarProps) {
               {items.length > 0 && (
                 <Badge variant="outline" className="text-xs">
                   {items.length}
-                </Badge>
+                  className="text-xs mr-8"
               )}
             </DialogTitle>
           </DialogHeader>
@@ -107,11 +107,10 @@ export default function CartSidebar({ open, onClose }: CartSidebarProps) {
                         >
                           {/* Product Image */}
                           {item.productImage && (
-                            <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-100 shrink-0 shadow-sm">
+                                className="w-24 h-12 text-center text-lg font-semibold touch-manipulation"
                               <img
-                                src={item.productImage}
+                                inputMode="numeric"
                                 alt={item.productName}
-                                className="w-full h-full object-cover"
                               />
                             </div>
                           )}

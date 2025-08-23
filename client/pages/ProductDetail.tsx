@@ -147,7 +147,7 @@ export default function ProductDetail() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           {/* Logo and Title */}
           <div className="flex items-center gap-3">
-            <div className="h-20 flex items-center">
+            <div className="h-24 sm:h-28 flex items-center">
               <img
                 src={
                   language === "ar"
@@ -155,7 +155,7 @@ export default function ProductDetail() {
                     : "https://cdn.builder.io/api/v1/image/assets%2F22d5611cd8c847859f0fef8105890b91%2Feb0b70b9250f4bfca41dbc5a78c2ce45?format=webp&width=800"
                 }
                 alt="أزهار ستور - azharstore"
-                className="h-20 w-auto object-contain"
+                className="h-24 sm:h-28 w-auto object-contain"
               />
             </div>
           </div>

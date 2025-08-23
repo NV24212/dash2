@@ -100,7 +100,7 @@ export default function AddToCartDialog({
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="w-[95vw] sm:max-w-md max-h-[95vh] flex flex-col">
+      <DialogContent className="w-[85vw] sm:max-w-md max-h-[80vh] flex flex-col rounded-2xl">
         <DialogHeader className="flex-shrink-0">
           <DialogTitle>{product.name}</DialogTitle>
         </DialogHeader>
@@ -167,21 +167,9 @@ export default function AddToCartDialog({
                     <Minus className="h-5 w-5" />
                   </Button>
 
-                  <Input
-                    id="quantity"
-                    type="number"
-                    value={quantity}
-                    onChange={(e) =>
-                      handleQuantityChange(parseInt(e.target.value) || 1)
-                    }
-                    min={1}
-                    max={maxQuantity}
-                    className="w-24 h-12 text-center text-lg font-semibold"
-                    autoComplete="off"
-                    inputMode="none"
-                    readOnly
-                    onFocus={(e) => e.target.blur()}
-                  />
+                  <div className="w-24 h-12 flex items-center justify-center bg-gray-50 border rounded-md">
+                    <span className="text-lg font-semibold">{quantity}</span>
+                  </div>
 
                   <Button
                     variant="outline"

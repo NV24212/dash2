@@ -68,7 +68,7 @@ export default function LoginPage() {
                     : "https://cdn.builder.io/api/v1/image/assets%2F22d5611cd8c847859f0fef8105890b91%2Feb0b70b9250f4bfca41dbc5a78c2ce45?format=webp&width=800"
                 }
                 alt="أزهار ستور - azharstore"
-                className="h-32 w-auto mx-auto object-contain"
+                className="h-40 w-auto mx-auto object-contain"
               />
             </div>
 

@@ -218,7 +218,7 @@ export default function CheckoutDialog({ open, onClose }: CheckoutDialogProps) {
 
   // Reset checkout state when dialog opens
   useEffect(() => {
-    if (open && !orderSuccess) {
+    if (open) {
       setStep(1);
       setCustomerInfo({
         name: "",
@@ -232,8 +232,9 @@ export default function CheckoutDialog({ open, onClose }: CheckoutDialogProps) {
       setDeliveryType("delivery");
       setDeliveryArea("sitra");
       setIsSubmitting(false);
+      setOrderSuccess(false);
     }
-  }, [open, orderSuccess]);
+  }, [open]);
 
   // Auto-scroll helpers
   useEffect(() => {
@@ -758,11 +759,13 @@ export default function CheckoutDialog({ open, onClose }: CheckoutDialogProps) {
                             className="text-sm font-medium text-primary ltr-text"
                             dir="ltr"
                           >
-                            {formatPriceWithSymbol(
-                              deliveryAreaSitra,
-                              currencySymbol,
-                              language,
-                            )}
+                            {totalPrice >= freeDeliveryMinimum
+                              ? language === "ar" ? "مجاني" : "Free"
+                              : formatPriceWithSymbol(
+                                  deliveryAreaSitra,
+                                  currencySymbol,
+                                  language,
+                                )}
                           </span>
                         </div>
 
@@ -789,11 +792,13 @@ export default function CheckoutDialog({ open, onClose }: CheckoutDialogProps) {
                             className="text-sm font-medium text-primary ltr-text"
                             dir="ltr"
                           >
-                            {formatPriceWithSymbol(
-                              deliveryAreaMuharraq,
-                              currencySymbol,
-                              language,
-                            )}
+                            {totalPrice >= freeDeliveryMinimum
+                              ? language === "ar" ? "مجاني" : "Free"
+                              : formatPriceWithSymbol(
+                                  deliveryAreaMuharraq,
+                                  currencySymbol,
+                                  language,
+                                )}
                           </span>
                         </div>
 
@@ -820,11 +825,13 @@ export default function CheckoutDialog({ open, onClose }: CheckoutDialogProps) {
                             className="text-sm font-medium text-primary ltr-text"
                             dir="ltr"
                           >
-                            {formatPriceWithSymbol(
-                              deliveryAreaOther,
-                              currencySymbol,
-                              language,
-                            )}
+                            {totalPrice >= freeDeliveryMinimum
+                              ? language === "ar" ? "مجاني" : "Free"
+                              : formatPriceWithSymbol(
+                                  deliveryAreaOther,
+                                  currencySymbol,
+                                  language,
+                                )}
                           </span>
                         </div>
                       </RadioGroup>

@@ -131,7 +131,7 @@ export default function Store() {
         <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between [dir=rtl]:flex-row-reverse">
           {/* Logo and Title */}
           <div className="flex items-center gap-2 sm:gap-3 [dir=rtl]:flex-row-reverse min-w-0 flex-1">
-            <div className="h-16 sm:h-20 lg:h-24 xl:h-28 flex items-center">
+            <div className="h-20 sm:h-24 lg:h-28 xl:h-32 flex items-center">
               <img
                 src={
                   language === "ar"
@@ -139,7 +139,7 @@ export default function Store() {
                     : "https://cdn.builder.io/api/v1/image/assets%2F22d5611cd8c847859f0fef8105890b91%2Feb0b70b9250f4bfca41dbc5a78c2ce45?format=webp&width=800"
                 }
                 alt="أزهار ستور - azharstore"
-                className="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto object-contain"
+                className="h-20 sm:h-24 lg:h-28 xl:h-32 w-auto object-contain"
               />
             </div>
           </div>

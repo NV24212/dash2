@@ -274,8 +274,7 @@ const translations = {
     "checkout.thankYou": "Thank you for your order",
     "checkout.orderNumber": "Order Number",
     "checkout.backToStore": "Back to Store",
-    "checkout.processingMessage":
-      "The order will be processed in 1-3 days, we will contact you when delivery",
+    "checkout.processingMessage": "We'll process your order within 2-4 hours and deliver within 1-3 business days.",
     "checkout.orderSuccessMessage": "Thank you for your order",
     "checkout.subtotal": "Subtotal",
     "checkout.deliveryFee": "Delivery Fee",
@@ -289,13 +288,6 @@ const translations = {
     "checkout.pickupDescription": "Pick up from our store",
     "checkout.whatsNext": "What's Next?",
     "checkout.needHelp": "Need Help?",
-    "checkout.backupRestore": "Backup & Restore",
-    "checkout.export": "Export",
-    "checkout.import": "Import",
-    "checkout.settingsImported":
-      "Settings have been imported successfully. Don't forget to save!",
-    "checkout.importError":
-      "Failed to import settings. Please check the file format.",
 
     // Additional store keys
     "store.outOfStock": "Out of Stock",
@@ -827,7 +819,7 @@ const translations = {
     "checkout.placeOrder": "إرسال الطلب",
     "checkout.orderSuccess": "تم أكيد الطلب بنجاح!",
     "checkout.thankYou":
-      "شكراً لك على طلبك! لقد استلمنا طلبك وسنقوم بمعالجته قريباً.",
+      "شكراً لك على طلبك! سنقوم بتجهيزه خلال 2-4 ساعات والتوصيل خلال 1-3 أيام عمل.",
     "checkout.orderNumber": "رقم الطلب",
     "checkout.backToStore": "العودة للمتجر",
     "checkout.noCreditCard": "لا حاجة لبطاقة ائتمان - الدفع عند التسليم فقط!",
@@ -838,10 +830,8 @@ const translations = {
     "checkout.needHelp": "تحتاج مساعدة؟",
 
     "checkout.prepareOrder": "سنقوم بتجهيز طلبك خلال 2-4 ساعات",
-    "checkout.contactPhone": "سيتم التواصل معك عبر الهاتف للتأكيد",
+    "checkout.contactPhone": "سيتم التواصل معك عبر الهاتف للتأكيد", 
     "checkout.deliveryTime": "التوصيل خلال 1-3 أيام عمل",
-    "checkout.importError":
-      "فشل في ستيراد الإعدادات. يرجى التحقق من تنسيق الملف.",
 
     // Additional store keys
     "store.outOfStock": "نفد المخزون",

@@ -689,16 +689,9 @@ export default function Settings() {
                       )
                     }
                     onFocus={(e) => {
-                      if (e.target.value === "0") {
+                      if (e.target.value === "0" || e.target.value === "0.0") {
                         e.target.value = "";
                       }
-                      // Scroll into view on mobile
-                      setTimeout(() => {
-                        e.target.scrollIntoView({
-                          behavior: "smooth",
-                          block: "center",
-                        });
-                      }, 100);
                     }}
                     className="ltr-text"
                     placeholder="20"
@@ -786,16 +779,9 @@ export default function Settings() {
                         )
                       }
                       onFocus={(e) => {
-                        if (e.target.value === "0") {
+                        if (e.target.value === "0" || e.target.value === "0.0") {
                           e.target.value = "";
                         }
-                        // Scroll into view on mobile
-                        setTimeout(() => {
-                          e.target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center",
-                          });
-                        }, 100);
                       }}
                       className="ltr-text"
                       placeholder="1.0"
@@ -867,16 +853,9 @@ export default function Settings() {
                         )
                       }
                       onFocus={(e) => {
-                        if (e.target.value === "0") {
+                        if (e.target.value === "0" || e.target.value === "0.0") {
                           e.target.value = "";
                         }
-                        // Scroll into view on mobile
-                        setTimeout(() => {
-                          e.target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center",
-                          });
-                        }, 100);
                       }}
                       className="ltr-text"
                       placeholder="1.5"
@@ -948,16 +927,9 @@ export default function Settings() {
                         )
                       }
                       onFocus={(e) => {
-                        if (e.target.value === "0") {
+                        if (e.target.value === "0" || e.target.value === "0.0") {
                           e.target.value = "";
                         }
-                        // Scroll into view on mobile
-                        setTimeout(() => {
-                          e.target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center",
-                          });
-                        }, 100);
                       }}
                       className="ltr-text"
                       placeholder="2.0"

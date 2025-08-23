@@ -102,9 +102,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                   : "https://cdn.builder.io/api/v1/image/assets%2F22d5611cd8c847859f0fef8105890b91%2Feb0b70b9250f4bfca41dbc5a78c2ce45?format=webp&width=800"
               }
               alt="أزهار ستور - azharstore"
-              className="h-8 w-8 object-contain"
+              className="h-10 w-10 object-contain"
             />
-            <h1 className="text-lg font-bold text-dashboard-primary [dir=rtl]:text-right [dir=ltr]:text-left">
+            <h1 className="text-xl font-bold text-dashboard-primary [dir=rtl]:text-right [dir=ltr]:text-left">
               {t("nav.adminPanel")}
             </h1>
           </div>
