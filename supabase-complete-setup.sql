@@ -126,29 +126,44 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON products TO authenticated;
 GRANT SELECT, INSERT, UPDATE, DELETE ON orders TO authenticated;
 GRANT SELECT, INSERT, UPDATE, DELETE ON admin_users TO authenticated;
 
--- Insert default categories
+-- Insert default categories with proper UUIDs
 INSERT INTO categories (id, name) VALUES 
-    ('1', 'Electronics'),
-    ('2', 'Accessories'),
-    ('3', 'Home & Office')
+    (uuid_generate_v4(), 'Electronics'),
+    (uuid_generate_v4(), 'Accessories'),
+    (uuid_generate_v4(), 'Home & Office')
 ON CONFLICT (id) DO NOTHING;
+
+-- Get category IDs for sample products (we'll need to query these after categories are created)
+-- For now, we'll insert products without category_id and update them later
+-- This approach ensures the script works even if run multiple times
 
 -- Insert sample products for testing
-INSERT INTO products (id, name, description, price, images, variants, category_id, total_stock) VALUES 
-    ('1', 'Sample Product 1', 'This is a sample product for testing', 35.00, '["https://via.placeholder.com/300"]', '[]', '1', 10),
-    ('2', 'Sample Product 2', 'Another sample product', 17.50, '["https://via.placeholder.com/300"]', '[]', '2', 5)
-ON CONFLICT (id) DO NOTHING;
+DO $$
+DECLARE
+    electronics_id UUID;
+    accessories_id UUID;
+BEGIN
+    -- Get the category IDs
+    SELECT id INTO electronics_id FROM categories WHERE name = 'Electronics' LIMIT 1;
+    SELECT id INTO accessories_id FROM categories WHERE name = 'Accessories' LIMIT 1;
+    
+    -- Insert products with proper category references
+    INSERT INTO products (name, description, price, images, variants, category_id, total_stock) VALUES 
+        ('Sample Product 1', 'This is a sample product for testing', 35.00, '["https://via.placeholder.com/300"]', '[]', electronics_id, 10),
+        ('Sample Product 2', 'Another sample product', 17.50, '["https://via.placeholder.com/300"]', '[]', accessories_id, 5)
+    ON CONFLICT (id) DO NOTHING;
+END $$;
 
 -- Insert sample customer for testing
-INSERT INTO customers (id, name, phone, address, town) VALUES 
-    ('1', 'Test Customer', '+973 36283382', 'Test Address', 'Manama'),
-    ('2', 'Sample Customer', '+973 12345678', 'Sample Address', 'Sitra')
+INSERT INTO customers (name, phone, address, town) VALUES 
+    ('Test Customer', '+973 36283382', 'Test Address', 'Manama'),
+    ('Sample Customer', '+973 12345678', 'Sample Address', 'Sitra')
 ON CONFLICT (id) DO NOTHING;
 
 -- Insert sample admin user (password: 'admin123' - should be changed in production)
 -- Password hash for 'admin123' using bcrypt
-INSERT INTO admin_users (id, email, password_hash) VALUES 
-    ('1', 'admin@azharstore.com', '$2b$10$rKvK0YjMlJMK0ZYZYQGzKOKEGYZzKGYzKOKEGYZzKOKEGYZzKOKEGY')
+INSERT INTO admin_users (email, password_hash) VALUES 
+    ('admin@azharstore.com', '$2b$10$rKvK0YjMlJMK0ZYZYQGzKOKEGYZzKGYzKOKEGYZzKOKEGYZzKOKEGY')
 ON CONFLICT (email) DO NOTHING;
 
 -- Create a view to get order details with customer information
