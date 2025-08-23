@@ -20,6 +20,14 @@ const CHARACTER_FIXES = [
   { pattern: /Ù„Ø£ÙŠ ØªØºÙŠÙŠØ±Ø§Øª Ø£Ùˆ Ø£Ø³Ø¦Ù„Ø© Ø­ÙˆÙ„ Ø·Ù„Ø¨Ùƒ/g, replacement: "لأي تغييرات أو أسئلة حول طلبك" },
   { pattern: /ÙŠØ±Ø¬Ù‰ Ø§Ù„ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§/g, replacement: "يرجى التواصل معنا" },
   
+  // English text corruptions  
+  { pattern: /Order is confirmed/g, replacement: "Order is confirmed" },
+  { pattern: /Order Confirmed!/g, replacement: "Order Confirmed!" },
+  { pattern: /Thank you for your order!/g, replacement: "Thank you for your order!" },
+  { pattern: /We'll process it within/g, replacement: "We'll process it within" },
+  { pattern: /deliver within/g, replacement: "deliver within" },
+  { pattern: /business days/g, replacement: "business days" },
+  
   // Common Arabic words
   { pattern: /Ø§Ù„Ù…Ù†ØªØ¬Ø§Øª/g, replacement: "المنتجات" },
   { pattern: /Ø§Ù„Ø·Ù„Ø¨Ø§Øª/g, replacement: "الطلبات" },

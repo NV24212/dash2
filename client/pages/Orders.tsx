@@ -315,7 +315,7 @@ export default function Orders() {
                 {t("orders.addNew")}
               </Button>
             </DialogTrigger>
-            <DialogContent className="w-[95vw] sm:max-w-4xl max-h-[95vh] overflow-y-auto rounded-lg sm:rounded-md">
+            <DialogContent className="w-[92vw] sm:max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl sm:rounded-lg shadow-xl">
               <DialogHeader>
                 <DialogTitle>
                   {editingOrder ? t("orders.editOrder") : t("orders.addOrder")}
@@ -454,7 +454,10 @@ export default function Orders() {
                                   if (e.target.value === "0" || e.target.value === "0.0") {
                                     e.target.value = "";
                                   }
+                                  // Ensure input is visible on mobile
+                                  e.target.scrollIntoView({ behavior: "smooth", block: "center" });
                                 }}
+                                className="touch-manipulation"
                               />
                             </div>
                             <div className="w-24">
@@ -474,7 +477,10 @@ export default function Orders() {
                                   if (e.target.value === "0" || e.target.value === "0.0") {
                                     e.target.value = "";
                                   }
+                                  // Ensure input is visible on mobile
+                                  e.target.scrollIntoView({ behavior: "smooth", block: "center" });
                                 }}
+                                className="touch-manipulation"
                               />
                             </div>
                             <Button
@@ -770,4 +776,201 @@ export default function Orders() {
                       size="sm"
                       variant="outline"
                       onClick={() => openViewDialog(order)}
+                      className="flex items-center gap-2"
+                    >
+                      <Eye className="w-4 h-4" />
+                      {t("orders.view")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => openDialog(order)}
+                      className="flex items-center gap-2"
+                    >
+                      <Edit className="w-4 h-4" />
+                      {t("orders.edit")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="destructive"
+                      onClick={() => handleDelete(order.id)}
+                      className="flex items-center gap-2"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                      {t("orders.delete")}
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* View Order Dialog */}
+        {viewingOrder && (
+          <Dialog open={isViewDialogOpen} onOpenChange={closeViewDialog}>
+            <DialogContent className="w-[92vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl shadow-xl">
+              <DialogHeader>
+                <DialogTitle className="flex items-center gap-2 text-xl">
+                  <Package className="w-5 h-5 text-primary" />
+                  {t("orders.orderId")} #{getOrderNumber(viewingOrder.id)}
+                </DialogTitle>
+              </DialogHeader>
+              
+              <div className="space-y-6 p-1">
+                {/* Customer Information */}
+                <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+                    <User className="w-4 h-4" />
+                    {t("checkout.customerInfo")}
+                  </h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium text-blue-800">{t("checkout.customerName")}:</span>
+                      <span className="text-blue-900 font-semibold">
+                        {getCustomerById(viewingOrder.customerId)?.name || "Unknown Customer"}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium text-blue-800">{t("checkout.customerPhone")}:</span>
+                      <span className="text-blue-900 font-semibold ltr-text" dir="ltr">
+                        {getCustomerById(viewingOrder.customerId)?.phone || "N/A"}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-start">
+                      <span className="font-medium text-blue-800">{t("checkout.customerAddress")}:</span>
+                      <span className="text-blue-900 font-semibold text-right max-w-[60%]">
+                        {getCustomerById(viewingOrder.customerId)?.address || "N/A"}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Order Status and Delivery */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                      <Clock className="w-4 h-4" />
+                      {t("orders.status")}
+                    </h4>
+                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(viewingOrder.status)}`}>
+                      {getStatusText(viewingOrder.status)}
+                    </span>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                      {viewingOrder.deliveryType === "delivery" ? (
+                        <Truck className="w-4 h-4" />
+                      ) : (
+                        <MapPin className="w-4 h-4" />
+                      )}
+                      {t("orders.deliveryType")}
+                    </h4>
+                    <span className="text-primary font-semibold capitalize">
+                      {viewingOrder.deliveryType === "delivery" ? t("orders.delivery") : t("orders.pickup")}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Order Items */}
+                <div className="bg-white border border-gray-200 rounded-lg">
+                  <div className="p-4 border-b border-gray-200 bg-gray-50">
+                    <h3 className="font-semibold text-gray-900 flex items-center gap-2">
+                      <ShoppingCart className="w-5 h-5 text-primary" />
+                      {t("checkout.orderItems")} ({viewingOrder.items.length})
+                    </h3>
+                  </div>
+                  <div className="p-4 space-y-3">
+                    {viewingOrder.items.map((item, index) => {
+                      const product = getProductById(item.productId);
+                      const variant = item.variantId && item.variantId !== "no-variant" 
+                        ? getVariantById(item.productId, item.variantId) 
+                        : null;
+                      
+                      return (
+                        <div 
+                          key={`${item.productId}-${item.variantId || "no-variant"}-${index}`}
+                          className="flex justify-between items-start gap-4 p-3 bg-gray-50 rounded-lg border border-gray-100"
+                        >
+                          <div className="flex items-start gap-3 flex-1">
+                            {product?.images?.[0] && (
+                              <img
+                                src={product.images[0]}
+                                alt={product.name}
+                                className="w-12 h-12 rounded-lg object-cover border border-gray-200"
+                              />
+                            )}
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-medium text-gray-900 auto-text text-base leading-tight">
+                                {product?.name || "Unknown Product"}
+                              </h4>
+                              {variant && (
+                                <p className="text-sm text-primary font-medium mt-1">
+                                  {variant.name}
+                                </p>
+                              )}
+                              <p className="text-xs text-gray-500 mt-1">
+                                {formatPrice(item.price, language)} × {item.quantity}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <div className="font-bold text-primary text-lg ltr-text" dir="ltr">
+                              {formatPrice(item.price * item.quantity, language)}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Order Total */}
+                <div className="bg-gradient-to-r from-primary/5 to-primary/10 p-4 rounded-lg border border-primary/20">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xl font-bold text-gray-900">{t("checkout.total")}:</span>
+                    <span className="text-2xl font-bold text-primary ltr-text" dir="ltr">
+                      {formatPrice(viewingOrder.total, language)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Order Notes */}
+                {viewingOrder.notes && (
+                  <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <h4 className="font-semibold text-yellow-900 mb-2">{t("orders.notes")}:</h4>
+                    <p className="text-yellow-800 text-sm">{viewingOrder.notes}</p>
+                  </div>
+                )}
+
+                {/* Order Dates */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600">
+                  <div className="flex justify-between">
+                    <span className="font-medium">{t("orders.createdAt")}:</span>
+                    <span>{new Date(viewingOrder.createdAt).toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium">{t("orders.updatedAt")}:</span>
+                    <span>{new Date(viewingOrder.updatedAt).toLocaleString()}</span>
+                  </div>
+                </div>
+              </div>
+
+              <DialogFooter className="pt-4 border-t">
+                <Button variant="outline" onClick={closeViewDialog} className="flex-1">
+                  {t("common.close")}
+                </Button>
+                <Button onClick={() => { closeViewDialog(); openDialog(viewingOrder); }} className="flex-1">
+                  <Edit className="w-4 h-4 mr-2" />
+                  {t("orders.edit")}
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+        )}
+      </div>
+    </div>
+  );
+}
                       

@@ -166,7 +166,7 @@ export default function Settings() {
     orderSuccessMessageEn:
       "Thank you for your order! We'll process it within 2-4 hours and deliver within 1-3 business days.",
     orderSuccessMessageAr:
-      "شكراً لك على طلبك! سنقوم بمعالجته خلال 2-4 ساعات والتوصيل خلال 1-3 أيام عم��.",
+      "شكراً لك على طلبك! سنقوم بمعالجته خلال 2-4 ساعات والتوصيل خلال 1-3 أيام عمل.",
     orderInstructionsEn:
       "For any changes or questions about your order, please contact us.",
     orderInstructionsAr: "لأي تغييرات أو أسئلة حول طلبك، يرجى التواصل معنا.",
@@ -692,8 +692,10 @@ export default function Settings() {
                       if (e.target.value === "0" || e.target.value === "0.0") {
                         e.target.value = "";
                       }
+                      // Ensure input is visible on mobile
+                      e.target.scrollIntoView({ behavior: "smooth", block: "center" });
                     }}
-                    className="ltr-text"
+                    className="ltr-text touch-manipulation"
                     placeholder="20"
                   />
                   <p className="text-sm text-muted-foreground auto-text mt-1">
@@ -782,8 +784,10 @@ export default function Settings() {
                         if (e.target.value === "0" || e.target.value === "0.0") {
                           e.target.value = "";
                         }
+                        // Ensure input is visible on mobile
+                        e.target.scrollIntoView({ behavior: "smooth", block: "center" });
                       }}
-                      className="ltr-text"
+                      className="ltr-text touch-manipulation"
                       placeholder="1.0"
                     />
                   </div>
@@ -856,8 +860,10 @@ export default function Settings() {
                         if (e.target.value === "0" || e.target.value === "0.0") {
                           e.target.value = "";
                         }
+                        // Ensure input is visible on mobile
+                        e.target.scrollIntoView({ behavior: "smooth", block: "center" });
                       }}
-                      className="ltr-text"
+                      className="ltr-text touch-manipulation"
                       placeholder="1.5"
                     />
                   </div>
@@ -905,7 +911,7 @@ export default function Settings() {
                             e.target.value,
                           )
                         }
-                        placeholder="م��ن أخرى"
+                        placeholder="مدن أخرى"
                         className="auto-text"
                       />
                     </div>
@@ -930,8 +936,10 @@ export default function Settings() {
                         if (e.target.value === "0" || e.target.value === "0.0") {
                           e.target.value = "";
                         }
+                        // Ensure input is visible on mobile
+                        e.target.scrollIntoView({ behavior: "smooth", block: "center" });
                       }}
-                      className="ltr-text"
+                      className="ltr-text touch-manipulation"
                       placeholder="2.0"
                     />
                   </div>
@@ -975,7 +983,7 @@ export default function Settings() {
                     }
                     className="auto-text"
                     rows={4}
-                    placeholder="أدخل ت��ليمات الاستلام بالعربية..."
+                                            placeholder="أدخل تعليمات الاستلام بالعربية..."
                   />
                 </div>
               </CardContent>
@@ -1075,7 +1083,7 @@ export default function Settings() {
                     onChange={(e) =>
                       handleInputChange("currentPassword", e.target.value)
                     }
-                    placeholder="••���•••••"
+                    placeholder="••••••••"
                     className="ltr-text"
                   />
                 </div>
